@@ -35,8 +35,8 @@ export function NavList() {
                 Portfolio
               </DropdownToggle>
               <DropdownMenu right>
-                <DropdownItem>Calculator</DropdownItem>
-                <DropdownItem>NASA Photo of the Day</DropdownItem>
+                <DropdownItem><NavLink href="https://react-shopping-cart-171h18m1j.now.sh/">Simple Shopping Cart</NavLink></DropdownItem>
+                <DropdownItem><NavLink href="https://nasa-photo-of-the-day-hfnc72sxc.now.sh/">NASA Photo of the Day</NavLink></DropdownItem>
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>

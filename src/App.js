@@ -12,7 +12,7 @@ function App() {
         </Col>
       </Row>
       <Row>
-        <Col xs="auto">content</Col>
+        <Col xs="auto">One day, you'll see content here... for now I don't have enough time to show off my work, because of work</Col>
       </Row>
     </Container>
   );
