@@ -1,29 +1,44 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export function NavList() {
+
+  const [menuToggle, setMenuToggle] = useState(false)
+
+  const toggleMenu = (e) => {
+    e.preventDefault()
+    console.log("click")
+    setMenuToggle(!menuToggle)
+  }
+
+  useEffect(()=> {
+    console.log(menuToggle)
+  }, [menuToggle])
+
   return (
     <nav>
       <div className="logo">
         <a href="/">
-          <img classname="logo" src="/images/text_logo.png" alt="brian hague developer logo" />
+          <img className="logo" src="/images/text_logo.png" alt="brian hague developer logo" />
         </a>
-        <button >
-          <object 
-            type="image/svg+xml" 
-            className="selected" 
-            data="./images/caret-square-down-duotone.svg" aria-label="nav menu toggle" />
+        <button 
+          className = "menuToggle"
+          onClick = {toggleMenu}
+        >
+          {menuToggle ? "X" : "≡"}
         </button>
       </div>
-      <div className="links">
+      <div className={menuToggle ? "links" : "hidden"}>
         <a href="https://www.linkedin.com/in/brian-hague-7441908/">
-          <img classname="svg" src="/images/linkedin-brands.svg" alt="linked in logo" />
-          LinkedIn
+          <img className="svg" src="/images/linkedin-brands.svg" alt="linked in logo" />
+          <p>LinkedIn</p>
         </a>
         <a href="https://github.com/alphaseinor">
-        <img classname="svg" src="/images/github-square-brands.svg" alt="git hub logo" />
-          GitHub
+        <img className="svg" src="/images/github-square-brands.svg" alt="git hub logo" />
+          <p>GitHub</p>
         </a>
       </div>
     </nav>
   );
 }
+
+export default NavList
