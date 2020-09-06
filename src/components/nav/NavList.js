@@ -30,11 +30,11 @@ export function NavList() {
       <div className={menuToggle ? "links" : "hidden"}>
         <a href="https://www.linkedin.com/in/brian-hague-7441908/">
           <img className="svg" src="/images/linkedin-brands.svg" alt="linked in logo" />
-          LinkedIn
+          <p>LinkedIn</p>
         </a>
         <a href="https://github.com/alphaseinor">
         <img className="svg" src="/images/github-square-brands.svg" alt="git hub logo" />
-          GitHub
+          <p>GitHub</p>
         </a>
       </div>
     </nav>

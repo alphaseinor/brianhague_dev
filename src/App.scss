@@ -226,6 +226,8 @@ main{
 @media (min-width: 500px) {
 
   header{
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
     nav{
       display: flex;
       flex-direction: row;
@@ -245,6 +247,14 @@ main{
             height: 1.5rem;
             width: 1.5rem;
             margin-right: .25rem;
+          }
+          p{
+            display: none;
+          }
+          &:hover{
+            p{
+              display: inline;
+            }
           }
         }
       }
