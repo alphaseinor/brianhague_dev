@@ -18,6 +18,37 @@
 
 // MOBILE FIRST VIEW
 
+h1, h2, h3, p {
+  padding: .5rem 0;
+}
+
+h1{
+  font-size: 1.5rem;
+}
+
+h2{
+  font-size: 1.25rem;
+}
+
+h3{
+  font-size: 1.125rem;
+}
+
+
+.hidden{
+  display:none;
+}
+
+body{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  .container{
+    width: 100%;
+    max-width: 1024px;
+  }
+}
+
 img {
   width: 100%;
 }
@@ -56,6 +87,7 @@ header {
   width: 100%;
   background-color: var(--bg-header);
   margin-bottom: 1rem;
+  padding: 0 .5rem;
   div{
     display: flex;
     justify-content: center;
@@ -98,9 +130,19 @@ header {
   }
 }
 
-.hidden{
-  display:none;
+
+main{
+  section{
+    margin: .5rem;
+    border: 1px solid var(--bg-accent);
+    border-radius: 10px;
+    padding: .5rem;
+    background: rgba(255, 255, 255, .05);
+    
+  }
 }
+
+
 //TABLET VIEW
 
 
