@@ -18,10 +18,10 @@ const NavItems = ({menuItem}) => {
                     >
                         <div>
                             <img src={menuItem.img.src} className={menuItem.img.className} alt={menuItem.img.alt} />
-                            {menuItem.text}
+                            <p>{menuItem.text}</p>
                         </div>
                     </button>
-                    <div className={menuToggle ? "links" : "hidden"}>
+                    <div className={menuToggle ? "links" : "toggle"}>
                         {menuItem.subMenu.map((menuItem, index)=><NavItems key={`NavItems-menu-${index}`} menuItem={menuItem} />)}
                     </div>
                 </div>
