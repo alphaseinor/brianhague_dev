@@ -146,6 +146,9 @@ header {
       align-items: center;
     }
   }
+  .toggle{
+    display: none;
+  }
   .links{
     display: flex;
     flex-direction: column;
