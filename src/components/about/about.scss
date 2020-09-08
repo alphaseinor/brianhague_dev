@@ -1,0 +1,14 @@
+body {
+      &::after{
+          content: "";
+          background-image: url('../..//images/backgrounds/zhang-linxuan-eIIU3Ju4kYY-unsplash.jpg');
+          background-size: cover;
+          opacity: 0.02;
+          top: 0;
+          left: 0;
+          bottom: 0;
+          right: 0;
+          position: fixed;
+          z-index: -1000;  
+      }
+}
