@@ -11,9 +11,10 @@ const NavItems = ({menuItem}) => {
                 setMenuToggle(!menuToggle)
             }
             return(
+                <>
                 <div>
                     <button 
-                        className = "menuToggle"
+                        className = {menuToggle ? "menuToggle selected" : "menuToggle"}
                         onClick = {toggleMenu}
                     >
                         <div>
@@ -21,10 +22,11 @@ const NavItems = ({menuItem}) => {
                             <p>{menuItem.text}</p>
                         </div>
                     </button>
-                    <div className={menuToggle ? "links" : "toggle"}>
-                        {menuItem.subMenu.map((menuItem, index)=><NavItems key={`NavItems-menu-${index}`} menuItem={menuItem} />)}
-                    </div>
                 </div>
+                <div className={menuToggle ? "modalMenu links" : "modalMenu toggle"}>
+                    {menuItem.subMenu.map((menuItem, index)=><NavItems key={`NavItems-menu-${index}`} menuItem={menuItem} />)}
+                </div>
+                </>
             )
         case "a":
             return(
