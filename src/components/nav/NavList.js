@@ -44,6 +44,16 @@ const NavList = () => {
             alt: "mark down"
           },
           text: "Markdown"
+        },
+        {
+          type: "link",
+          to: "/rocketreach/",
+          img:{
+            src: "/images/rocketreach.svg",
+            className: "svg",
+            alt: "rocketreach"
+          },
+          text: "RocketReach"
         }
       ]
     }
