@@ -248,6 +248,9 @@ main{
           display:none;
         }
       }
+      .selected {
+        background-color: rgba(0,0,255, .2);
+      }
       .hidden{
         display: flex;
         button, a {

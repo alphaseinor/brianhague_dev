@@ -14,7 +14,7 @@ const NavItems = ({menuItem}) => {
                 <>
                 <div>
                     <button 
-                        className = "menuToggle"
+                        className = {menuToggle ? "menuToggle selected" : "menuToggle"}
                         onClick = {toggleMenu}
                     >
                         <div>
