@@ -29,7 +29,7 @@ const NavList = () => {
       type: "toggle",
       toggle: false,
       img: {
-        src: "/images/flask-potion-duotone.svg",
+        src: "/images/loaf-arrow-down-1.svg",
         className: "svg",
         alt: "experiments"
       },
