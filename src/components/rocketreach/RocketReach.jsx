@@ -11,6 +11,7 @@ const RocketReach = () => {
     }
 
     const [form, setForm] = useState(initialFormState)
+    const [data, setData] = useState({})
 
 
     const onChange = (e) => {
@@ -20,9 +21,12 @@ const RocketReach = () => {
     const submitForm = (e) => {
         e.preventDefault()
         if(form.apikey !== "" && form.name !== "" && form.company !== ""){
-            console.log(form)
-            axios.get(`https://api.rocketreach.co/v2/api/lookupProfile?ApiKey=${form.apikey}`)
-                .then(res=>{console.log(res)})
+            // console.log(form)
+            axios.get(`https://cors-anywhere.herokuapp.com/https://api.rocketreach.co/v2/api/lookupProfile?api_key=${form.apikey}&name=${form.name}&current_employer=${form.company}` )
+                .then(res=>{
+                    console.log(res)
+                    setData(res.data)
+                })
                 .catch(err=>{
                     cogoToast.error(`API information on form may be incorrect. See console for more information`, {position: 'bottom-center'})        
                     console.log("Yeah, something is wrong here, did you mis type up your API key?")
@@ -32,7 +36,6 @@ const RocketReach = () => {
             cogoToast.error(`missing information on form`, {position: 'bottom-center'})
         }
     }
-
 
     return(<>
         <section>
@@ -51,6 +54,29 @@ const RocketReach = () => {
                 </label>
                 <button type="submit">Submit</button>
             </form>
+        </section>
+        <section>
+            <article className="markdown">
+                { 
+                    data.name ? (<>
+                        {data.profile_pic && <img src={data.profile_pic} alt={data.name} />}
+                        <h3>{data.name}</h3>
+                        <h4>Emails</h4>
+                        {
+                            data.emails.map((email)=>(
+                                email.smtp_valid === "valid" && <a href={`mailto:${email.email}`}>{email.type}: {email.email}</a>
+                            ))
+                            
+                        }
+                        <h4>Links</h4>
+                        {
+                            Object.keys(data.links).map(key => (
+                                <a href={data.links[key]}>{key}</a>
+                            ))
+                        }
+                    </>):(<>no data</>)
+                }
+            </article>
         </section>
     </>)
 }
