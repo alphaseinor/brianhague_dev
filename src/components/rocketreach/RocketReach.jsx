@@ -63,15 +63,15 @@ const RocketReach = () => {
                         <h3>{data.name}</h3>
                         <h4>Emails</h4>
                         {
-                            data.emails.map((email)=>(
-                                email.smtp_valid === "valid" && <a href={`mailto:${email.email}`}>{email.type}: {email.email}</a>
+                            data.emails.map((email, index)=>(
+                                email.smtp_valid === "valid" && <p key={email+index}><a href={`mailto:${email.email}`}>{email.type}: {email.email}</a></p>
                             ))
                             
                         }
                         <h4>Links</h4>
                         {
-                            Object.keys(data.links).map(key => (
-                                <a href={data.links[key]}>{key}</a>
+                            Object.keys(data.links).map((key, index) => (
+                                <p key={key+index}><a href={data.links[key]}>{key}</a></p>
                             ))
                         }
                     </>):(<>no data</>)
