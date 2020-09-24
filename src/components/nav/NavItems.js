@@ -1,9 +1,16 @@
 import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 
-const NavItems = ({menuItem}) => {
+const NavItems = (props) => {
+
+    const {menuItem} = props
     const [menuToggle, setMenuToggle] = useState(false)
-    console.log(menuItem)
+
+    const menuOff = () => {
+        setMenuToggle(false)
+    }
+
+    // console.log(menuItem)
     switch(menuItem.type){
         case "toggle":
             const toggleMenu = (e) => {
@@ -24,7 +31,7 @@ const NavItems = ({menuItem}) => {
                     </button>
                 </div>
                 <div className={menuToggle ? "modalMenu links" : "modalMenu toggle"}>
-                    {menuItem.subMenu.map((menuItem, index)=><NavItems key={`NavItems-menu-${index}`} menuItem={menuItem} />)}
+                    {menuItem.subMenu.map((menuItem, index)=><NavItems key={`NavItems-menu-${index}`} menuItem={menuItem} menuOff={menuOff} />)}
                 </div>
                 </>
             )
@@ -38,7 +45,7 @@ const NavItems = ({menuItem}) => {
             
         case "link":
             return(
-                <Link to={menuItem.to}>
+                <Link to={menuItem.to} onClick={props.menuOff}>
                     <img src={menuItem.img.src} className={menuItem.img.className} alt={menuItem.img.alt} />
                     <p>{menuItem.text}</p>
                 </Link>
