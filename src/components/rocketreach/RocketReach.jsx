@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import cogoToast from 'cogo-toast'
+import axios from 'axios'
 
 const RocketReach = () => {
 
@@ -17,7 +19,18 @@ const RocketReach = () => {
 
     const submitForm = (e) => {
         e.preventDefault()
-        console.log(form)
+        if(form.apikey !== "" && form.name !== "" && form.company !== ""){
+            console.log(form)
+            axios.get(`https://api.rocketreach.co/v2/api/lookupProfile?ApiKey=${form.apikey}`)
+                .then(res=>{console.log(res)})
+                .catch(err=>{
+                    cogoToast.error(`API information on form may be incorrect. See console for more information`, {position: 'bottom-center'})        
+                    console.log("Yeah, something is wrong here, did you mis type up your API key?")
+                    console.log(err)
+                })
+        } else {
+            cogoToast.error(`missing information on form`, {position: 'bottom-center'})
+        }
     }
 
 
@@ -36,6 +49,7 @@ const RocketReach = () => {
                     Company Name
                     <input name="company" value={form.company} onChange={onChange} type="text"/>
                 </label>
+                <button type="submit">Submit</button>
             </form>
         </section>
     </>)
