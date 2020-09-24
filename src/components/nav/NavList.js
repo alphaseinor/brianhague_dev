@@ -37,6 +37,16 @@ const NavList = () => {
       subMenu: [
         {
           type: "link",
+          to: "/",
+          img:{
+            src: "/images/angle-right-duotone.svg",
+            className: "svg",
+            alt: "home"
+          },
+          text: "Home"
+        },
+        {
+          type: "link",
           to: "/markdown/",
           img:{
             src: "/images/markdown-brands.svg",

@@ -6,6 +6,7 @@ import Header from './components/header/Header'
 import Main from './components/main/Main';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Markdown from './components/markdown/Markdown'
+import RocketReach from './components/rocketreach/RocketReach';
 
 function App() {
   return (
@@ -17,6 +18,9 @@ function App() {
       </Route>
       <Route path="/markdown">
         <Markdown />
+      </Route>
+      <Route path="/rocketreach">
+        <RocketReach />
       </Route>
       <footer>
 
