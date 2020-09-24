@@ -5,9 +5,9 @@ import axios from 'axios'
 const RocketReach = () => {
 
     const initialFormState = {
-        apikey:"",
-        name:"",
-        company:"",
+        apikey:"3E7k0123456789abcdef0123456789abcdef",
+        name:"Mark Benioff",
+        company:"Salesforce",
     }
 
     const [form, setForm] = useState(initialFormState)
@@ -20,6 +20,7 @@ const RocketReach = () => {
 
     const submitForm = (e) => {
         e.preventDefault()
+        cogoToast.loading("Loading...", {position: "bottom-center"})
         if(form.apikey !== "" && form.name !== "" && form.company !== ""){
             // console.log(form)
             axios.get(`https://cors-anywhere.herokuapp.com/https://api.rocketreach.co/v2/api/lookupProfile?api_key=${form.apikey}&name=${form.name}&current_employer=${form.company}` )
