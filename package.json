@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "cogo-toast": "^4.2.3",
     "markdown-to-jsx": "^6.11.4",
     "node-sass": "^4.14.1",
